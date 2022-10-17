@@ -61,5 +61,5 @@ void clockwise(int Speed)
 ### OUTPUT:
 ![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/ex6.png?raw=true)
 
-### RESULTS AND DISCUSSION 
+### RESULTS AND DISCUSSION :
 
