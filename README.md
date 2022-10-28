@@ -30,36 +30,71 @@ As shown in the circuit diagram we need only 3 Arduino terminal pins, pin 8 is f
 Name:A.Sai Bandhavi
 Reg no:212221240006
 ```
+### Normal RPM:
 ```
-const int motorIn1 = 5;  
-const int motorIn2 =6;
-
+// C++ code
+//l293D
+const int motorPin1 = 5;//pin 14 of L293
+const int motorPin2 = 6;//pin 10 of L293
+// this will run only one time
 void setup(){
-  pinMode(motorIn1, OUTPUT);
+  //set pins as output
+  pinMode(motorPin1,OUTPUT);
+  pinMode(motorPin2, OUTPUT);
+}
+void loop(){
+  digitalWrite(motorPin1,LOW);
+  delay(2000);
+  digitalWrite(motorPin2,HIGH);
+  delay(2000);
+}
+```
+  
+To Control RPM:
+```
+// C++ code
+//l293D
+
+#define motorIn1  5//pin 14 of L293
+#define motorIn2  6//pin 10 of L293
+// this will run only one time
+void setup(){
+  //set pins as output
+  pinMode(motorIn1,OUTPUT);
   pinMode(motorIn2, OUTPUT);
 }
 void loop(){
-  clockwise(255);
-  delay(3000);
-  counterClockwise(64);
+  //pulse width modulation(pwm)
+  clockwise(0);
+  delay(5000);
+  counterClockwise(50);
   delay(3000);
 }
 void counterClockwise(int Speed)
 {
   analogWrite(motorIn1,Speed);
   analogWrite(motorIn2,0);
+  
 }
 void clockwise(int Speed)
 {
-  analogWrite(motorIn1,0);
-  analogWrite(motorIn2,Speed);
+    analogWrite(motorIn1,0);
+      analogWrite(motorIn2,Speed);
+ //delay(5);
 }
-  
+
 
 ```
 
 ### OUTPUT:
-![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/ex6.png?raw=true)
+### Circuit Diagram:
+![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/r6.png?raw=true)
+![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/r7.png?raw=true)
+### Graph and Tabulation:
+### Clockwise:
+![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/r8.png?raw=true)
+### Counter clockwise:
+![output](https://github.com/Saibandhavi75/Experiment-no-7-DC-Motor-Speed-Control-Using-Arduino/blob/main/r9.png?raw=true)
 
 ### RESULTS AND DISCUSSION :
-
+Thus, the speed and the direction of a DC motor using L293D driver ic( H- bridge) is controlled.
